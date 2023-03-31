@@ -4,12 +4,3 @@ node_modules/
 # Sass
 .sass-cache/
 *.css.map
-
-_gnome-shell/
-gnome-shell/dark-and-white/
-gnome-shell/dark/
-gnome-shell/light/
-
-install.sh
-*.tar
-
