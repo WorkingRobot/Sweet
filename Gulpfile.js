@@ -1,40 +1,24 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('node-sass'));
 var exec = require('gulp-exec');
 
-gulp.task('styles', function(done) {
+
+gulp.task('gtk3', function(done) {
     gulp.src('gtk-3.0/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./gtk-3.0/'))
-        .pipe(exec(' gsettings set org.gnome.desktop.interface gtk-theme "Sweet"'))
     done();
 });
 
-gulp.task('shell-style', function(done) {
-    gulp.src('gnome-shell/**/*.scss')
+gulp.task('gtk4', function(done) {
+    gulp.src('gtk-4.0/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./gnome-shell/'))
-        .pipe(exec('gsettings set org.gnome.shell.extensions.user-theme name "Sweet"'))
-
-    done();
-});
-
-gulp.task('cinnamon-style', function(done) {
-    gulp.src('cinnamon/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./cinnamon/'))
+        .pipe(gulp.dest('./gtk-4.0/'))
     done();
 });
 
 //Watch task
 gulp.task('default',function() {
-    gulp.watch('gtk-3.0/**/*.scss', gulp.series('styles'));
-});
-
-gulp.task('shell',function() {
-    gulp.watch('gnome-shell/**/*.scss', gulp.series('shell-style'));
-});
-
-gulp.task('cinnamon',function() {
-    gulp.watch('cinnamon/**/*.scss', gulp.series('cinnamon-style'));
+    gulp.watch('gtk-3.0/**/*.scss', gulp.series('gtk3'));
+    gulp.watch('gtk-4.0/**/*.scss', gulp.series('gtk4'));
 });
