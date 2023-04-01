@@ -17,7 +17,7 @@ for theme_name, theme_path in THEMES.items():
     with open("theme.gresource.xml", "w") as gres:
         gres.write('<?xml version="1.0" encoding="UTF-8"?>')
         gres.write('<gresources>')
-        gres.write(f'<gresource prefix="/me/workingrobot/l4/themes/{theme_name}/">')
+        gres.write(f'<gresource prefix="/org/gtk/libgtk/theme/{theme_name}/">')
         for file in glob.glob('assets/*'):
             file = file.replace('\\','/')
             if file.endswith('.svg'):
@@ -26,7 +26,7 @@ for theme_name, theme_path in THEMES.items():
                 gres.write(f'<file>{file}</file>')
             else:
                 gres.write(f'<file compressed="true">{file}</file>')
-        for file in glob.glob('gtk-4.0/*.css'):
+        for file in glob.glob('*.css'):
             file = file.replace('\\','/')
             gres.write(f'<file compressed="true">{file}</file>')
         gres.write('</gresource>')
