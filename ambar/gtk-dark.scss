@@ -2,9 +2,9 @@
 
 $variant: 'dark';
 
-@import '../shared/colors';
-@import '../shared/elementary-colors';
-@import '../shared/colors-public';
+@import 'colors';
+@import 'elementary-colors';
+@import 'colors-public';
 @import 'drawing';
 @import 'common';
 @import 'widgets';
