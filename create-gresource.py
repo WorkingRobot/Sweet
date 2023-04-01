@@ -3,7 +3,7 @@ import os, glob
 with open("theme.gresource.xml", "w") as gres:
     gres.write('<?xml version="1.0" encoding="UTF-8"?>')
     gres.write('<gresources>')
-    gres.write('<gresource prefix="/me/workingrobot/l4/themes/sweet-dark/">')
+    gres.write('<gresource prefix="/me/workingrobot/l4/themes/sweet-mars/">')
     for file in glob.glob('assets/*'):
         file = file.replace('\\','/')
         if file.endswith('.svg'):
